@@ -7,7 +7,7 @@
     tools:context=".PaletteActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -21,6 +21,7 @@
         app:layout_constraintVertical_bias="0.144" />
 
     <GridView
+        android:id="@+id/colorGrid"
         android:layout_width="380dp"
         android:layout_height="380dp"
         android:layout_marginStart="10dp"
@@ -29,6 +30,6 @@
         android:numColumns="3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/greeting" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
