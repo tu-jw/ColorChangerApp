@@ -3,6 +3,8 @@ package edu.temple.colorchangingapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,8 @@ import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Locale;
 
 public class PaletteActivity extends AppCompatActivity {
 
@@ -23,25 +27,21 @@ public class PaletteActivity extends AppCompatActivity {
     ArrayList<String> colors;
     GridView gridView;
     TextView textView;
+    Locale localeEn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Resources res = getResources();
 
-        colors = new ArrayList();
+        String colorsArray[] = res.getStringArray(R.array.color_array); // Sets the values in the string_array values file in res to this
+        System.out.println("COLORS ARRAY: " + Arrays.toString(colorsArray));
+
+        colors = new ArrayList<String>(Arrays.asList(colorsArray));
         gridView = findViewById(R.id.colorGrid);
         textView = findViewById(R.id.greeting);
-
-        colors.add("WHITE");
-        colors.add("GREY");
-        colors.add("FUCHSIA");
-        colors.add("RED");
-        colors.add("YELLOW");
-        colors.add("LIME");
-        colors.add("GREEN");
-        colors.add("CYAN");
-        colors.add("BLUE");
+        textView.setText(R.string.choose_color); // Sets the greeting message/instruction message
 
         final BaseAdapter adapter = new ColorAdapter(this, colors);
 

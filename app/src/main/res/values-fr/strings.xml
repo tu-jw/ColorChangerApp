@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Joshs Changeur de Couleur</string>
+    <string name="choose_color">Choisir une couleur</string>
+
+    <string-array
+        name="color_array">
+        <item>BLANC</item>
+        <item>GRIS</item>
+        <item>FUCHSIA</item>
+        <item>ROUGE</item>
+        <item>JAUNE</item>
+        <item>CITRON VERT</item>
+        <item>VERT</item>
+        <item>CYAN</item>
+        <item>BLEU</item>
+    </string-array>
+
+</resources>
