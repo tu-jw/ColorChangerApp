@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">Color Changing App</string>
+    <string name="app_name">Joshs Color Changer</string>
+    <string name="choose_color">Choose a color</string>
+    <string name="color_WHITE">WHITE</string>
+    <string name="color_GREY">GREY</string>
+    <string name="color_FUCHSIA">FUCHSIA</string>
+    <string name="color_RED">RED</string>
+    <string name="color_YELLOW">YELLOW</string>
+    <string name="color_LIME">LIME</string>
+    <string name="color_GREEN">GREEN</string>
+    <string name="color_CYAN">CYAN</string>
+    <string name="color_BLUE">BLUE</string>
+
 </resources>
