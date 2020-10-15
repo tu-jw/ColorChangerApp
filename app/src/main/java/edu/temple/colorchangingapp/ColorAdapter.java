@@ -3,6 +3,7 @@ package edu.temple.colorchangingapp;
 import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Locale;
 
 public class ColorAdapter extends BaseAdapter {
@@ -43,12 +45,16 @@ public class ColorAdapter extends BaseAdapter {
         TextView textView = new TextView(context);
         textView.setText(getItem(position).toString());
 
-        /*locale = new Locale("en");
-        Resources resources = context.getResources();
-        Configuration config = resources.getConfiguration();
-        config.setLocale(locale); */
+        locale = new Locale("en");
+        Configuration config = context.getResources().getConfiguration();
+        config = new Configuration(config);
+        config.setLocale(locale);
+        Context localizedContext = context.createConfigurationContext(config);
+        Resources enResources = localizedContext.getResources();
 
-        textView.setBackgroundColor(Color.parseColor(getItem(position).toString().toLowerCase()));
+        String colorsArray[] = enResources.getStringArray(R.array.color_array); // Sets the values in the string_array values file in res to this
+
+        textView.setBackgroundColor(Color.parseColor(colorsArray[position].toLowerCase()));
         return textView;
     }
 }
