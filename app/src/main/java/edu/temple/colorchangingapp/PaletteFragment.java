@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -24,9 +25,30 @@ public class PaletteFragment extends Fragment {
     View layout;
     ColorChosenInterface parentActivity;
     String colorSelected;
+    String[] colorArray;
+    private final static String pKey = "paramV";
 
     public PaletteFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle bundle = getArguments();
+        if(bundle != null)
+        {
+            colorArray = bundle.getStringArray(pKey);
+        }
+        System.out.println("PaletteFragment color array: " + Arrays.toString(colorArray));
+    }
+
+    public static PaletteFragment newInstance(String[] paramV) {
+        PaletteFragment pFragment = new PaletteFragment();
+        Bundle bundle = new Bundle();
+        bundle.putStringArray(pKey, paramV); // at the key "pKey" place the String[] value (our list of colors)
+        pFragment.setArguments(bundle);
+        return pFragment;
     }
 
     @Override

@@ -16,12 +16,11 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements PaletteFragment.ColorChosenInterface {
 
-    private int CODE = 11;
-
     // Our structures to be set in onCreate() method
     PaletteFragment paletteFragment;
     CanvasFragment canvasFragment;
     String currentColorChosen;
+    String[] colorArr;
     ConstraintLayout constraintLayout;
 
     @Override
@@ -31,8 +30,12 @@ public class MainActivity extends AppCompatActivity implements PaletteFragment.C
         Resources res = getResources();
         constraintLayout = findViewById(R.id.constraintLayoutID);
 
-        paletteFragment = new PaletteFragment();
-        canvasFragment = new CanvasFragment();
+        colorArr = getResources().getStringArray(R.array.color_array);
+
+        //paletteFragment = new PaletteFragment();
+        paletteFragment = PaletteFragment.newInstance(colorArr);
+        //canvasFragment = new CanvasFragment();
+        canvasFragment = CanvasFragment.newInstance(colorArr); // finish off
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
