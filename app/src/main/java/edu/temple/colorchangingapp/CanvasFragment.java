@@ -34,6 +34,7 @@ public class CanvasFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getArguments();
+
         if(bundle != null)
         {
             realColorArray = bundle.getStringArray(pKey);
@@ -56,7 +57,7 @@ public class CanvasFragment extends Fragment {
         thisContext = getContext();
         layout = inflater.inflate(R.layout.fragment_canvas, container, false);
         textView = layout.findViewById(R.id.greeting); // sets the textView equal to our greeting text
-        textView.setText("Colour:");
+        textView.setText(getString(R.string.choose_color));
 
         // Receive the color selected from the adapter in the other fragment (palette fragment) and set the text = that... Also set the background color = that. Handle French
 
